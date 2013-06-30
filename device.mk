@@ -28,10 +28,13 @@ DEVICE_PACKAGE_OVERLAYS := device/lge/gelato/overlay
 # These are the hardware-specific configuration files
 PRODUCT_COPY_FILES += \
     device/common/gps/gps.conf_US_SUPL:system/etc/gps.conf \
-    device/lge/gelato/media_profiles.xml:system/etc/media_profiles.xml \
-    device/lge/gelato/librasdioif.ko:system/lib/modules/librasdioif.ko \
-    device/lge/gelato/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
-    device/lge/gelato/wireless.ko:system/lib/modules/wireless.ko
+    device/lge/gelato/media_profiles.xml:system/etc/media_profiles.xml
+
+## We don't need these for recovery... (moved to submodels in files, these
+## paths are not valid anymore :P )
+#    device/lge/gelato/librasdioif.ko:system/lib/modules/librasdioif.ko \
+#    device/lge/gelato/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
+#    device/lge/gelato/wireless.ko:system/lib/modules/wireless.ko
 
 # Device permissions
 PRODUCT_COPY_FILES += \
@@ -50,7 +53,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/gelato/ramdisk/init.rc:root/init.rc \
     device/lge/gelato/ramdisk/init.gelato.rc:root/init.gelato.rc \
-    device/lge/gelato/ramdisk/initlogo.rle:root/initlogo.rle \
+# remove this cause Dark says :P
+#    device/lge/gelato/ramdisk/initlogo.rle:root/initlogo.rle \
     device/lge/gelato/ramdisk/ueventd.rc:root/ueventd.rc
 
 # Keyboard
@@ -70,7 +74,7 @@ PRODUCT_PACKAGES += \
 DISABLE_DEXPREOPT := false
   
 # Kernel
-LOCAL_KERNEL := device/lge/gelato/zImage
+LOCAL_KERNEL := device/lge/gelato/files/$(SUB_MODEL)/kernel/zImage
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 

@@ -20,7 +20,5 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-
-# Note userdebug isn't tested.
 add_lunch_combo cyanogen_gelato_VM701-eng
-add_lunch_combo cyanogen_gelato_VM701-userdebug
+add_lunch_combo cyanogen_gelato_L55C-eng
